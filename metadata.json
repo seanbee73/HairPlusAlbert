@@ -1,0 +1,8 @@
+{
+  "name": "Hair Plus Albert",
+  "description": "Hair Plus is a beauty salon located at 338 Albert St Unit 101, Waterloo, ON N2L 0G8 in Waterloo, Ontario. This salon has received positive reviews from clients in the Waterloo area. Services offered include Hair Salon. Their team can help with a variety of needs, from everyday beauty maintenance to special occasion styling. Today\u0027s hours are 10 AM – 7 PM. Many salons offer free on-site parking. Uptown salons accessible via ION LRT. Accessible via ION LRT, GRT buses, and GO Transit connections to Toronto. Visit their profile on BookBeauty.ca to view hours, services, and contact information.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
