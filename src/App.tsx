@@ -54,7 +54,15 @@ export default function App() {
       const saved = localStorage.getItem('hp_posts');
       if (saved) {
         try {
-          return JSON.parse(saved);
+          const parsed = JSON.parse(saved);
+          // Sync default post images if they are still using older placeholders
+          return parsed.map((p: SalonPost) => {
+            const defaultMatch = DEFAULT_POSTS.find(dp => dp.id === p.id);
+            if (defaultMatch && p.imageUrl.includes('unsplash.com')) {
+              return { ...p, imageUrl: defaultMatch.imageUrl };
+            }
+            return p;
+          });
         } catch {
           return DEFAULT_POSTS;
         }
@@ -69,7 +77,14 @@ export default function App() {
       const saved = localStorage.getItem('hp_lookbook');
       if (saved) {
         try {
-          return JSON.parse(saved);
+          const parsed = JSON.parse(saved);
+          return parsed.map((item: LookbookItem) => {
+            const defaultMatch = LOOKBOOK_DATA.items.find(di => di.id === item.id);
+            if (defaultMatch && (item.image?.includes('unsplash.com') || item.src?.includes('unsplash.com'))) {
+              return { ...item, image: defaultMatch.image, src: defaultMatch.src };
+            }
+            return item;
+          });
         } catch {
           return LOOKBOOK_DATA.items;
         }
